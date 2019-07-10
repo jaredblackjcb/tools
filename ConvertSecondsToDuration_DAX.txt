@@ -1,0 +1,25 @@
+Duration = 
+//Returns seconds elapsed converted into dd:hh:mm:ss format
+VAR Days = QUOTIENT([Seconds], 86400)
+VAR Hours = QUOTIENT([Seconds] - Days * 86400, 3600)
+VAR Minutes = QUOTIENT([Seconds] - Days * 86400 - Hours * 3600, 60)
+VAR Seconds = [Seconds] - Days * 86400 - Hours * 3600 - Minutes * 60
+VAR D =
+    IF ( LEN( Days ) = 1,
+    CONCATENATE("0", Days),
+    Days
+    )
+VAR H = 
+    IF( LEN( Hours ) = 1,
+    CONCATENATE("0", Hours),
+    Hours)
+VAR M =
+    IF( LEN( Minutes ) = 1,
+    CONCATENATE("0", Minutes),
+    Minutes)
+VAR S =
+    IF( LEN( Seconds ) = 1,
+    CONCATENATE("0", Seconds),
+    Seconds)
+   
+RETURN D & ":" & H & ":" & M & ":" & S

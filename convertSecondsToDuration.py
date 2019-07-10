@@ -1,4 +1,3 @@
-import pandas as pd
 def SecondsToDuration(seconds):
     days = seconds // 86400
     hours = (seconds - days * 86400) // 3600
@@ -15,8 +14,4 @@ def SecondsToDuration(seconds):
     formatted_duration = str(days) + ":" + str(hours) + ":" + str(minutes) + ":" + str(seconds)
     return formatted_duration
 
-
-seconds_input = 334751
-result = SecondsToDuration(seconds_input)
-print(result)
 
